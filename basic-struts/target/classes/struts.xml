@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<package name="struts2" extends="struts-default">
+		
+		<action name="login">
+			<result>/pages/login.jsp</result>
+		</action>
+		
+		<action name="forget">
+			<result>/pages/forget.jsp</result>
+		</action>
+		
+		<action name="home">
+			<result>/pages/home.jsp</result>
+		</action>
+		
+		<action name="lform" class="com.project.controller.Login">
+			<result name="success">/pages/home.jsp</result>
+			<result name="error">/pages/error.jsp</result>
+			<result name="admin">/pages/admin.jsp</result>
+		</action>
+		
+		<action name="logout" class="com.project.controller.Login" method="logout">
+			<result name="success">/pages/start.jsp</result>
+		</action>
+		
+		<action name="profile" class="com.project.controller.UpdateProfile" method="execute">
+			<result>/pages/profile.jsp</result>
+		</action>
+		
+		<action name="edit" class="com.project.controller.UpdateProfile" method="execute">
+			<result name="success">/pages/editProfile.jsp</result>
+			<result name="error">/pages/error.jsp</result>
+		</action>
+		
+		<action name="profileEdit" class="com.project.controller.UpdateProfile" method="updateUser">
+			<result name="up_success">/pages/profile.jsp</result>
+			<result name="up_error">/pages/editProfile.jsp</result>
+		</action>	
+		
+		<action name="register">
+			<result>/pages/register.jsp</result>
+		</action>
+		
+		<action name="start">
+			<result>/pages/start.jsp</result>
+		</action>
+		
+		<action name="rform" class="com.project.controller.Register">
+			<result name="success">/pages/confirm.jsp</result>
+			<result name="error">/pages/error.jsp</result>
+		</action>
+		
+		<action name="thankyou" class="com.project.controller.Thankyou">
+			<result name="success">/pages/thankyou.jsp</result>
+		</action>
+		
+		<action name="search" class="com.project.controller.Search"  method="execute">
+			<result name="success">/pages/searchUser.jsp</result>
+		</action>
+		
+		<action name="otherProfile" class="com.project.controller.ViewProfile"  method="execute">
+			<result name="success">/pages/otherProfile.jsp</result>
+		</action>
+		
+		<action name="forget">
+			<result>/pages/forget.jsp</result>
+		</action>
+		
+		<action name="Fform" class="com.project.controller.Forget" method="findEmail" >
+			<result name="success">/pages/forgetPassword.jsp</result>
+			<result name="error">/pages/error.jsp</result>
+		</action>
+		
+		<action name="Reform" class="com.project.controller.Forget" method="updatePassword" >
+			<result name="success">/pages/forgetThank.jsp</result>
+			<result name="error">/pages/error.jsp</result>
+		</action>
+		
+		<action name="manageUser" class="com.project.controller.ManageUser"  method="execute">
+			<result name="success">/pages/users.jsp</result>
+		</action>
+		
+		<action name="deleteUser" class="com.project.controller.ManageUser"  method="deleteUser">
+			<result name="de_success">/pages/successDelete.jsp</result>
+		</action>
+	
+	</package>
+</struts>
